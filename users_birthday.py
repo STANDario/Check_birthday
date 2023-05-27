@@ -14,12 +14,10 @@ def get_birthdays_per_week(users):
 
     result = []
     new_users_dict = {}
-    new_users_list = []
 
     for j in users:
         for k, v in j.items():
             new_users_dict[k] = v
-            new_users_list.append(k)
 
     birthday_dict = {}
 
@@ -31,7 +29,7 @@ def get_birthdays_per_week(users):
         weeks_interval = timedelta(days=plus_day_to_zero_week)
         now += weeks_interval
 
-    for i in new_users_list:
+    for i in new_users_dict.keys():
 
         x = new_users_dict.get(i).replace(year=now.year)
         day_on_this_week_or_no = x.date() - now.date()
